@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Map.gd" type="Script" id=1]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 375, 378, 1123, 376, 1125, 1126, 375, 1126 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 375, 378, 1123, 376, 1125, 1126, 375, 1126 ) ]
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Water" type="ColorRect" parent="."]
+margin_right = 1500.0
+margin_bottom = 1500.0
+rect_min_size = Vector2( 1500, 1500 )
+color = Color( 0.266667, 0.14902, 0.835294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Land" type="ColorRect" parent="."]
+margin_left = 375.0
+margin_top = 375.0
+margin_right = 1125.0
+margin_bottom = 1125.0
+rect_min_size = Vector2( 750, 750 )
+color = Color( 0.188235, 0.639216, 0.184314, 1 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+visible = false
+navpoly = SubResource( 1 )

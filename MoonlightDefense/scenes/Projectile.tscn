@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://art/aquatic-vampire-fang.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Projectile.gd" type="Script" id=2]
+[ext_resource path="res://art/BarnacleBullet.png" type="Texture" id=3]
+[ext_resource path="res://art/arrow.png" type="Texture" id=4]
+[ext_resource path="res://art/stonepiece.png" type="Texture" id=5]
+[ext_resource path="res://art/MagicPiece.png" type="Texture" id=6]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Overlay" type="Polygon2D" parent="."]
+visible = false
+color = Color( 0.203922, 0.129412, 0.54902, 0.588235 )
+polygon = PoolVector2Array( -2, 2, -2, -2, 10, 0 )
+
+[node name="Icons" type="Node2D" parent="."]
+
+[node name="ARROW" type="TextureRect" parent="Icons"]
+visible = false
+margin_left = -34.7188
+margin_top = -21.7893
+margin_right = 109.281
+margin_bottom = 19.2107
+rect_scale = Vector2( 0.2, 0.2 )
+rect_pivot_offset = Vector2( 34.915, 21.7847 )
+texture = ExtResource( 4 )
+stretch_mode = 6
+
+[node name="FANG" type="TextureRect" parent="Icons"]
+visible = false
+margin_left = -20.0337
+margin_top = -29.4896
+margin_right = 19.9663
+margin_bottom = 10.5104
+rect_rotation = 90.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 20, 29.4356 )
+texture = ExtResource( 1 )
+stretch_mode = 6
+
+[node name="BARNACLE" type="TextureRect" parent="Icons"]
+visible = false
+margin_left = -119.534
+margin_top = -276.286
+margin_right = 258.466
+margin_bottom = 152.714
+rect_rotation = 30.0
+rect_scale = Vector2( 0.05, 0.05 )
+rect_pivot_offset = Vector2( 119.571, 276.286 )
+texture = ExtResource( 3 )
+stretch_mode = 6
+
+[node name="STONE" type="TextureRect" parent="Icons"]
+visible = false
+margin_left = -188.793
+margin_top = -214.307
+margin_right = 189.207
+margin_bottom = 214.693
+rect_scale = Vector2( 0.05, 0.05 )
+rect_pivot_offset = Vector2( 189, 214.5 )
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="MAGIC_PIECE" type="TextureRect" parent="Icons"]
+visible = false
+margin_left = -188.793
+margin_top = -214.307
+margin_right = 189.207
+margin_bottom = 214.693
+rect_scale = Vector2( 0.05, 0.05 )
+rect_pivot_offset = Vector2( 189, 214.5 )
+texture = ExtResource( 6 )
+stretch_mode = 6

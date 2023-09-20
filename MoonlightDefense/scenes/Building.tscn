@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/Building.gd" type="Script" id=1]
+[ext_resource path="res://art/Hut_sm.png" type="Texture" id=2]
+[ext_resource path="res://art/Barracks_sm.png" type="Texture" id=3]
+[ext_resource path="res://scenes/OutlineAlert.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/archeryrange_sm.png" type="Texture" id=5]
+[ext_resource path="res://scenes/Highlight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/TownHall_sm.png" type="Texture" id=7]
+[ext_resource path="res://art/Temple.png" type="Texture" id=8]
+[ext_resource path="res://art/WoodTower_1.png" type="Texture" id=9]
+[ext_resource path="res://art/StoneTower.png" type="Texture" id=10]
+[ext_resource path="res://art/MagicCastle.png" type="Texture" id=11]
+
+[node name="Building" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 100.0
+margin_bottom = 100.0
+color = Color( 0.160784, 0.517647, 0.552941, 1 )
+
+[node name="TimerTask" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerAlert" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerGenerate" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="TimerAttackSound" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerReload" type="Timer" parent="."]
+one_shot = true
+
+[node name="Icons" type="Node2D" parent="."]
+
+[node name="HUT" type="TextureRect" parent="Icons"]
+visible = false
+margin_right = 2479.0
+margin_bottom = 1414.0
+rect_scale = Vector2( 0.063, 0.063 )
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TOWN_CENTER" type="TextureRect" parent="Icons"]
+margin_right = 2479.0
+margin_bottom = 1414.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
+stretch_mode = 5
+
+[node name="BARRACKS" type="TextureRect" parent="Icons"]
+visible = false
+margin_right = 2479.0
+margin_bottom = 1414.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+stretch_mode = 6
+
+[node name="ARCHERY_RANGE" type="TextureRect" parent="Icons"]
+visible = false
+margin_right = 2479.0
+margin_bottom = 1414.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="TEMPLE" type="TextureRect" parent="Icons"]
+visible = false
+margin_right = 2479.0
+margin_bottom = 1414.0
+rect_scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 8 )
+stretch_mode = 6
+
+[node name="WOOD_TOWER" type="TextureRect" parent="Icons"]
+visible = false
+margin_right = 472.0
+margin_bottom = 743.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 9 )
+stretch_mode = 5
+
+[node name="STONE_TOWER" type="TextureRect" parent="Icons"]
+visible = false
+margin_right = 472.0
+margin_bottom = 743.0
+rect_scale = Vector2( 0.17, 0.17 )
+texture = ExtResource( 10 )
+stretch_mode = 5
+
+[node name="MAGIC_CASTLE" type="TextureRect" parent="Icons"]
+margin_right = 769.0
+margin_bottom = 590.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
+stretch_mode = 5
+
+[node name="Highlight" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="OutlineAlert" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="ButtonCover" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 100.0
+margin_bottom = 100.0
+
+[connection signal="timeout" from="TimerTask" to="." method="_on_TimerTask_timeout"]
+[connection signal="timeout" from="TimerAlert" to="." method="_on_TimerAlert_timeout"]
+[connection signal="timeout" from="TimerGenerate" to="." method="_on_TimerGenerate_timeout"]
+[connection signal="timeout" from="TimerAttackSound" to="." method="_on_TimerAttackSound_timeout"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_TimerReload_timeout"]
+[connection signal="pressed" from="ButtonCover" to="." method="_on_ButtonCover_pressed"]

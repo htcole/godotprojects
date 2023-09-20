@@ -1,0 +1,130 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/Unit.gd" type="Script" id=1]
+[ext_resource path="res://sprites/worker.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://sprites/coral-golum.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://scenes/Highlight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/aquatic-vampire.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://sprites/sea-monster.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://sprites/swordsman.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://sprites/archer.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://scenes/magic-swordsman.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://scenes/magic-chariot.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://scenes/OutlineAlert.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/catapult.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://sprites/magic-catapult.tres" type="SpriteFrames" id=13]
+
+[node name="Unit" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TimerAlert" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerReload" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerAttackSound" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ColorTeam0" type="ColorRect" parent="."]
+margin_right = 30.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 30, 50 )
+color = Color( 0.211765, 0.305882, 0.670588, 1 )
+
+[node name="ColorTeam1" type="ColorRect" parent="."]
+margin_right = 30.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 30, 50 )
+color = Color( 0.694118, 0.356863, 0.207843, 1 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="NodeSprite" type="Node2D" parent="."]
+
+[node name="WORKER" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+position = Vector2( 26, 26 )
+scale = Vector2( 0.1, 0.1 )
+frames = ExtResource( 2 )
+animation = "down"
+
+[node name="SWORDSMAN" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+position = Vector2( 25, 38 )
+scale = Vector2( 0.25, 0.25 )
+frames = ExtResource( 7 )
+animation = "down"
+
+[node name="MAGIC_SWORDSMAN" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+position = Vector2( 25, 38 )
+scale = Vector2( 0.25, 0.25 )
+frames = ExtResource( 9 )
+animation = "down"
+
+[node name="MAGIC_CHARIOT" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+scale = Vector2( 0.75, 0.75 )
+frames = ExtResource( 10 )
+animation = "down"
+centered = false
+
+[node name="ARCHER" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+position = Vector2( 23, 35 )
+scale = Vector2( 0.22, 0.22 )
+frames = ExtResource( 8 )
+animation = "down"
+
+[node name="CATAPULT" type="AnimatedSprite" parent="NodeSprite"]
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 12 )
+animation = "down"
+centered = false
+
+[node name="MAGIC_CATAPULT" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 13 )
+animation = "down"
+centered = false
+offset = Vector2( -20, -90 )
+
+[node name="CORAL_GOLUM" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 3 )
+animation = "right"
+centered = false
+
+[node name="AQUATIC_VAMPIRE" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 5 )
+animation = "right"
+centered = false
+
+[node name="SEA_MONSTER" type="AnimatedSprite" parent="NodeSprite"]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+frames = ExtResource( 6 )
+animation = "right"
+centered = false
+
+[node name="Highlight" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="OutlineAlert" parent="." instance=ExtResource( 11 )]
+visible = false
+
+[node name="ButtonCover" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 12.0
+margin_bottom = 20.0
+
+[connection signal="timeout" from="TimerAlert" to="." method="_on_TimerAlert_timeout"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_TimerReload_timeout"]
+[connection signal="timeout" from="TimerAttackSound" to="." method="_on_TimerAttackSound_timeout"]
+[connection signal="pressed" from="ButtonCover" to="." method="_on_ButtonCover_pressed"]

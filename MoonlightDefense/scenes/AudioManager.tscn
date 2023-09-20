@@ -1,0 +1,70 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/AudioManager.gd" type="Script" id=1]
+[ext_resource path="res://audio/egorkin-menu-theme.mp3" type="AudioStream" id=2]
+[ext_resource path="res://audio/egorkin-day-theme.mp3" type="AudioStream" id=3]
+[ext_resource path="res://audio/egorkin-start-game.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/egorkin-night-theme.mp3" type="AudioStream" id=5]
+[ext_resource path="res://audio/egorkin-epic-victory.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/egorkin-epic-lose.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/Sfx_UI/Sfx_UI-004.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/Sfx_UI/Sfx_UI-003.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/Sfx_Building_is_ready.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/sounds/minifantasy_26_sword_hit_1.wav" type="AudioStream" id=11]
+[ext_resource path="res://audio/sounds/minifantasy_14_human_death_spin.wav" type="AudioStream" id=12]
+[ext_resource path="res://audio/sounds/Sfx_Unit_is_ready.wav" type="AudioStream" id=13]
+[ext_resource path="res://audio/sounds/Sfx_Worker_acknowledge-001.wav" type="AudioStream" id=14]
+[ext_resource path="res://audio/sounds/Sfx_Building_destroyed.wav" type="AudioStream" id=15]
+
+[node name="AudioManager" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="GameMusicDay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+
+[node name="GameMusicNight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+
+[node name="GameStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="GameWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -7.0
+
+[node name="GameLose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -7.0
+
+[node name="UIAction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="GameObjectSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="BuildingReady" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="PlayerAttack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="PlayerUnitDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="UnitCreated" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="TownBell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="UnitAck" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="BuildingDestroyed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )

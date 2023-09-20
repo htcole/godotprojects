@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Title.gd" type="Script" id=1]
+[ext_resource path="res://fonts/title-alegreya-sans-sc.tres" type="DynamicFont" id=2]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=3]
+
+[node name="Title" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1024.0
+margin_bottom = 700.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 700.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 248.0
+margin_top = 107.0
+margin_right = 776.0
+margin_bottom = 592.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 528.0
+margin_bottom = 100.0
+custom_constants/margin_bottom = 100
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 528.0
+margin_bottom = 237.0
+custom_fonts/font = ExtResource( 2 )
+text = "Atlantis:
+Moonlight Defense"
+align = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 241.0
+margin_right = 528.0
+margin_bottom = 441.0
+custom_constants/margin_bottom = 200
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 445.0
+margin_right = 528.0
+margin_bottom = 485.0
+
+[node name="ButtonContinue" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 164.0
+margin_right = 364.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+text = "Start Game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/ButtonContinue" to="." method="_on_ButtonContinue_pressed"]
