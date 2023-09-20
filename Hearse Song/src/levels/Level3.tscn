@@ -1,0 +1,506 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Trap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Obstacles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Gate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Treasure.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/level3bg.png" type="Texture" id=6]
+[ext_resource path="res://assets/mago3.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://src/levels/TombstonePath.gd" type="Script" id=8]
+[ext_resource path="res://assets/something.ogg" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 2, 1.25, -2, -1.25, 104, 40, 0, 0, 0, 0, 168, 40, 0, 0, 0, 0, 168, 56, 0, 0, 0, 0, 105, 56, 0, 0, 0, 0, 104, 40 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 169, 169, 0, 0, 0, 0, 233, 169, 0, 0, 0, 0, 233, 184, 0, 0, 0, 0, 169, 184, 0, 0, 0, 0, 169, 169 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 137, 153, 0, 0, 0, 0, 24, 151, 0, 0, 0, 0, 24, 185, 0, 0, 0, 0, 137, 184, 0, 0, 0, 0, 137, 153 )
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 80 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 80 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 8 )
+
+[node name="Level3" type="Node"]
+
+[node name="Bounds" type="Control" parent="."]
+visible = false
+margin_right = 240.0
+margin_bottom = 208.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1, 18 )
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+margin_left = -1.0
+margin_top = -10.0
+margin_right = 239.0
+margin_bottom = 198.0
+texture = ExtResource( 6 )
+
+[node name="Obstacles" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 131072, 0, 0, 131077, 0, 0, 131084, 0, 0, 131088, 0, 0, 196608, 0, 0, 196611, 0, 0, 196613, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196620, 0, 0, 196624, 0, 0, 262144, 0, 0, 262147, 0, 0, 262153, 0, 0, 262156, 0, 0, 262159, 0, 0, 327680, 0, 0, 327683, 0, 0, 327689, 0, 0, 327692, 0, 0, 327695, 0, 0, 393216, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393228, 0, 0, 393231, 0, 0, 458752, 0, 0, 458761, 0, 0, 458764, 0, 0, 458767, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524297, 0, 0, 524300, 0, 0, 524303, 0, 0, 589824, 0, 0, 589833, 0, 0, 589836, 0, 0, 589839, 0, 0, 655369, 0, 0, 655375, 0, 0, 720905, 0, 0, 720911, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 851983, 0, 0 )
+
+[node name="Song" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Song"]
+margin_left = 211.0
+margin_top = 32.0
+margin_right = 258.0
+margin_bottom = 269.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "Your
+stomach
+turns
+to
+rancid
+grease
+
+And
+puss
+pours
+out like
+melted
+cheese"
+
+[node name="Label2" type="Label" parent="Song"]
+margin_left = 168.0
+margin_top = 168.0
+margin_right = 267.0
+margin_bottom = 405.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "You spread it on
+a slice of bread"
+
+[node name="Label5" type="Label" parent="Song"]
+margin_left = 165.0
+margin_top = 76.0
+margin_right = 212.0
+margin_bottom = 313.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "And 
+that's
+what
+you'll
+eat"
+
+[node name="Label6" type="Label" parent="Song"]
+margin_left = 111.0
+margin_top = 35.0
+margin_right = 214.0
+margin_bottom = 272.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "when you're dead"
+
+[node name="Label7" type="Label" parent="Song"]
+margin_left = 72.0
+margin_top = 70.0
+margin_right = 175.0
+margin_bottom = 307.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "And the worms
+crawl out"
+align = 1
+
+[node name="Label8" type="Label" parent="Song"]
+margin_left = 21.0
+margin_top = 35.0
+margin_right = 55.0
+margin_bottom = 176.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "And
+ 
+the
+ 
+worms
+
+crawl
+
+in"
+align = 1
+
+[node name="Label9" type="Label" parent="Song"]
+margin_left = 86.0
+margin_top = 129.0
+margin_right = 168.0
+margin_bottom = 270.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "The ones 
+that crawl 
+in are
+lean and
+thin"
+align = 1
+
+[node name="Label10" type="Label" parent="Song"]
+margin_left = 21.0
+margin_top = 153.0
+margin_right = 103.0
+margin_bottom = 294.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 5 )
+text = "The ones that
+crawl out are
+fat and stout"
+align = 1
+
+[node name="TombstonePath" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Path2D" type="Path2D" parent="TombstonePath"]
+position = Vector2( -32, 32 )
+curve = SubResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TombstonePath/Path2D"]
+position = Vector2( 104, 40 )
+rotation = -0.0982868
+
+[node name="Trap" parent="TombstonePath/Path2D/PathFollow2D" instance=ExtResource( 2 )]
+
+[node name="TombstonePath2" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Path2D" type="Path2D" parent="TombstonePath2"]
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TombstonePath2/Path2D"]
+position = Vector2( 169, 169 )
+rotation = -3.89614e-06
+
+[node name="Trap" parent="TombstonePath2/Path2D/PathFollow2D" instance=ExtResource( 2 )]
+
+[node name="TombstonePath3" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Path2D" type="Path2D" parent="TombstonePath3"]
+curve = SubResource( 8 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TombstonePath3/Path2D"]
+position = Vector2( 137, 153 )
+rotation = -3.1239
+
+[node name="Trap" parent="TombstonePath3/Path2D/PathFollow2D" instance=ExtResource( 2 )]
+
+[node name="Treasure" parent="." instance=ExtResource( 5 )]
+position = Vector2( 103, 39 )
+
+[node name="Gate" parent="." instance=ExtResource( 4 )]
+position = Vector2( 232, 48 )
+scale = Vector2( 1, -0.200001 )
+destination_scene = "res://src/levels/Level2.tscn"
+destination_gate = "Gate2"
+
+[node name="Entrance" parent="Gate" index="0"]
+monitoring = true
+
+[node name="CollisionShape2D" parent="Gate/Entrance" index="0"]
+shape = SubResource( 1 )
+
+[node name="Exit" parent="Gate" index="1"]
+position = Vector2( 16, 0 )
+monitoring = false
+
+[node name="CollisionShape2D" parent="Gate/Exit" index="0"]
+shape = SubResource( 2 )
+
+[node name="Gate2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 7, 177 )
+rotation = -1.5708
+is_horizontal = true
+destination_scene = "res://src/levels/Level4.tscn"
+destination_gate = "Gate2"
+
+[node name="CollisionShape2D" parent="Gate2/Entrance" index="0"]
+shape = SubResource( 3 )
+
+[node name="Exit" parent="Gate2" index="1"]
+position = Vector2( 0, 16 )
+
+[node name="CollisionShape2D" parent="Gate2/Exit" index="0"]
+shape = SubResource( 4 )
+
+[node name="disappear" type="Node" parent="."]
+
+[node name="Enemy" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 232, 120 )
+
+[node name="Enemy3" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 232, 104 )
+
+[node name="Enemy4" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 104 )
+
+[node name="Enemy5" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 232, 88 )
+
+[node name="Enemy6" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 232, 72 )
+
+[node name="Enemy7" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 88 )
+
+[node name="Enemy8" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 72 )
+
+[node name="Enemy9" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 56 )
+
+[node name="Enemy10" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 40 )
+
+[node name="Enemy11" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 168 )
+
+[node name="Enemy36" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 232, 184 )
+
+[node name="Enemy13" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 152 )
+
+[node name="Enemy14" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 232, 152 )
+
+[node name="Enemy35" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 232, 136 )
+
+[node name="Enemy37" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 152 )
+
+[node name="Enemy38" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 152 )
+
+[node name="Enemy39" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 136 )
+
+[node name="Enemy40" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 152, 40 )
+
+[node name="Enemy41" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 136, 40 )
+
+[node name="Enemy42" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 120, 40 )
+
+[node name="Enemy43" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 72 )
+
+[node name="Enemy44" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 56 )
+
+[node name="Enemy45" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 56 )
+
+[node name="Enemy46" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 40 )
+
+[node name="Enemy47" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 136 )
+
+[node name="Enemy48" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 104, 56 )
+
+[node name="Enemy49" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 120 )
+
+[node name="Enemy50" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 24, 120 )
+
+[node name="Enemy58" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 200, 184 )
+
+[node name="Enemy60" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 88 )
+
+[node name="Enemy61" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 88 )
+
+[node name="Enemy62" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 72 )
+
+[node name="Enemy63" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 40 )
+
+[node name="Enemy65" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 24, 56 )
+
+[node name="Enemy66" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 24, 72 )
+
+[node name="Enemy67" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 72 )
+
+[node name="Enemy68" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 24, 40 )
+
+[node name="Enemy69" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 72, 120 )
+
+[node name="Enemy70" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 88 )
+
+[node name="Enemy71" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 72, 56 )
+
+[node name="Enemy72" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 136 )
+
+[node name="Enemy73" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 120 )
+
+[node name="Enemy51" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 104 )
+
+[node name="Enemy52" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 24, 104 )
+
+[node name="Enemy53" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 24, 88 )
+
+[node name="Enemy54" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 56 )
+
+[node name="Enemy55" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 104, 120 )
+
+[node name="Enemy56" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 56, 120 )
+
+[node name="Enemy57" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 88, 120 )
+
+[node name="Enemy16" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 120 )
+
+[node name="Enemy17" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 104 )
+
+[node name="Enemy18" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 104 )
+
+[node name="Enemy20" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 136, 88 )
+
+[node name="Enemy21" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 120, 72 )
+
+[node name="Enemy23" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 184, 168 )
+
+[node name="Enemy25" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 168, 184 )
+
+[node name="Enemy89" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 136, 152 )
+
+[node name="Enemy91" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 136, 136 )
+
+[node name="Enemy92" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 136, 120 )
+
+[node name="Enemy93" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 136, 184 )
+
+[node name="Enemy95" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 120, 168 )
+
+[node name="Enemy96" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 120, 136 )
+
+[node name="Enemy97" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 120, 120 )
+
+[node name="Enemy99" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 104, 152 )
+
+[node name="Enemy101" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 104, 136 )
+
+[node name="Enemy103" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 88, 136 )
+
+[node name="Enemy102" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 104, 184 )
+
+[node name="Enemy76" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 88, 168 )
+
+[node name="Enemy77" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 72, 184 )
+
+[node name="Enemy79" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 24, 168 )
+
+[node name="Enemy81" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 184 )
+
+[node name="Enemy83" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 56, 168 )
+
+[node name="Enemy84" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 72, 152 )
+
+[node name="Enemy87" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 152 )
+
+[node name="Enemy27" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 56, 40 )
+
+[node name="Enemy28" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 72, 40 )
+
+[node name="Enemy29" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 72, 88 )
+
+[node name="Enemy30" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 88, 72 )
+
+[node name="Enemy31" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 40, 40 )
+
+[node name="Enemy34" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 104, 88 )
+
+[node name="Enemy2" parent="disappear" instance=ExtResource( 1 )]
+position = Vector2( 216, 120 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[editable path="Gate"]
+[editable path="Gate2"]

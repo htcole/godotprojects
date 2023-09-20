@@ -1,0 +1,303 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/Gate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Obstacles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Treasure.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Trap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/mago3.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/level7bg.png" type="Texture" id=7]
+[ext_resource path="res://src/levels/TombstonePath.gd" type="Script" id=8]
+[ext_resource path="res://assets/Hope.ogg" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 184, 200, 0, 0, 0, 0, 40, 200, 0, 0, 0, 0, 184, 200 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 56, 200, 0, 0, 0, 0, 136, 200, 0, 0, 0, 0, 8, 200, 0, 0, 0, 0, 136, 200 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 216, 152, 0, 0, 0, 0, 88, 152, 0, 0, 0, 0, 216, 152 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 8, 184, 0, 0, 0, 0, 8, 152, 0, 0, 0, 0, 104, 152, 0, 0, 0, 0, 8, 152, 0, 0, 0, 0, 8, 184 )
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 8 )
+
+[node name="Level7" type="Node"]
+
+[node name="Bounds" type="Control" parent="."]
+visible = false
+margin_top = -16.0
+margin_right = 240.0
+margin_bottom = 208.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+margin_right = 240.0
+margin_bottom = 208.0
+texture = ExtResource( 7 )
+
+[node name="Obstacles" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, 65535, 0, 0, 15, 0, 0, 131071, 0, 0, 65551, 0, 0, 196607, 0, 0, 131087, 0, 0, 262143, 0, 0, 196623, 0, 0, 327679, 0, 0, 262159, 0, 0, 393215, 0, 0, 327695, 0, 0, 458751, 0, 0, 393231, 0, 0, 524287, 0, 0, 458753, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458759, 0, 0, 458761, 0, 0, 458764, 0, 0, 458767, 0, 0, 589823, 0, 0, 524288, 0, 0, 524290, 0, 0, 524294, 0, 0, 524296, 0, 0, 524298, 0, 0, 524299, 0, 0, 524302, 0, 0, 524303, 0, 0, 655359, 0, 0, 589838, 0, 0, 589839, 0, 0, 720895, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655375, 0, 0, 786431, 0, 0, 720900, 0, 0, 720904, 0, 0, 720911, 0, 0, 851967, 0, 0, 786447, 0, 0, 917503, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0 )
+
+[node name="Song" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Song"]
+margin_left = 184.0
+margin_top = 176.0
+margin_right = 224.0
+margin_bottom = 190.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 3 )
+text = "when"
+
+[node name="Label2" type="Label" parent="Song"]
+margin_left = 112.0
+margin_top = 184.0
+margin_right = 152.0
+margin_bottom = 213.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 3 )
+text = "death
+brings"
+
+[node name="Label3" type="Label" parent="Song"]
+margin_left = 32.0
+margin_top = 176.0
+margin_right = 76.0
+margin_bottom = 221.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 3 )
+text = "his
+cold
+despair"
+align = 1
+
+[node name="Label4" type="Label" parent="Song"]
+margin_left = 140.0
+margin_top = 147.0
+margin_right = 277.0
+margin_bottom = 192.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 3 )
+text = "  Will  anyone  care?"
+align = 1
+
+[node name="Label5" type="Label" parent="Song"]
+margin_left = 40.0
+margin_top = 148.0
+margin_right = 130.0
+margin_bottom = 193.0
+rect_scale = Vector2( 0.625, 0.625 )
+custom_fonts/font = SubResource( 3 )
+text = "Ask yourself"
+align = 1
+
+[node name="TrapPathFollow1" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Path2D" type="Path2D" parent="TrapPathFollow1"]
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TrapPathFollow1/Path2D"]
+position = Vector2( 184, 200 )
+rotation = 3.14159
+
+[node name="Trap" parent="TrapPathFollow1/Path2D/PathFollow2D" instance=ExtResource( 4 )]
+
+[node name="TrapPathFollow2" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Path2D" type="Path2D" parent="TrapPathFollow2"]
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TrapPathFollow2/Path2D"]
+position = Vector2( 136, 200 )
+rotation = 3.14159
+
+[node name="Trap" parent="TrapPathFollow2/Path2D/PathFollow2D" instance=ExtResource( 4 )]
+
+[node name="TrapPathFollow4" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Path2D" type="Path2D" parent="TrapPathFollow4"]
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TrapPathFollow4/Path2D"]
+position = Vector2( 216, 152 )
+rotation = 3.14159
+
+[node name="Trap" parent="TrapPathFollow4/Path2D/PathFollow2D" instance=ExtResource( 4 )]
+
+[node name="TrapPathFollow3" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Path2D" type="Path2D" parent="TrapPathFollow3"]
+curve = SubResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TrapPathFollow3/Path2D"]
+position = Vector2( 8, 184 )
+rotation = -1.5708
+
+[node name="Trap" parent="TrapPathFollow3/Path2D/PathFollow2D" instance=ExtResource( 4 )]
+
+[node name="Treasure" parent="." instance=ExtResource( 3 )]
+position = Vector2( 216, 136 )
+
+[node name="Gate" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 184 )
+rotation = -3.10664
+is_horizontal = true
+destination_scene = "res://src/levels/Level6.tscn"
+destination_gate = "Gate2"
+
+[node name="Entrance" parent="Gate" index="0"]
+monitoring = true
+
+[node name="CollisionShape2D" parent="Gate/Entrance" index="0"]
+shape = SubResource( 1 )
+
+[node name="Exit" parent="Gate" index="1"]
+position = Vector2( 0, -16 )
+monitoring = false
+
+[node name="CollisionShape2D" parent="Gate/Exit" index="0"]
+shape = SubResource( 2 )
+
+[node name="disappear" type="Node" parent="."]
+
+[node name="Enemy7" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 120, 152 )
+
+[node name="Enemy8" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 136, 200 )
+
+[node name="Enemy9" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 168, 200 )
+
+[node name="Enemy13" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 72, 152 )
+
+[node name="Enemy14" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 88, 184 )
+
+[node name="Enemy18" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 120, 184 )
+
+[node name="Enemy57" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 40, 200 )
+
+[node name="Enemy69" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 24, 184 )
+
+[node name="Enemy120" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 152, 184 )
+
+[node name="Enemy122" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 232, 200 )
+
+[node name="Enemy123" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 232, 168 )
+
+[node name="Enemy124" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 216, 152 )
+
+[node name="Enemy125" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 304, 88 )
+
+[node name="Enemy128" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 184, 152 )
+
+[node name="Enemy132" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 320, 160 )
+
+[node name="Enemy121" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 56, 184 )
+
+[node name="Enemy126" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 120, 136 )
+
+[node name="Enemy133" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 56, 136 )
+
+[node name="Enemy134" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 384, 152 )
+
+[node name="Enemy141" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 152, 136 )
+
+[node name="Enemy143" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 152, 152 )
+
+[node name="Enemy144" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 136, 168 )
+
+[node name="Enemy145" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 328, 120 )
+
+[node name="Enemy146" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 72, 168 )
+
+[node name="Enemy135" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 72, 200 )
+
+[node name="Enemy136" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 104, 200 )
+
+[node name="Enemy139" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 88, 136 )
+
+[node name="Enemy142" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 184, 184 )
+
+[node name="Enemy127" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 216, 184 )
+
+[node name="Enemy129" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 8, 200 )
+
+[node name="Enemy130" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 56, 152 )
+
+[node name="Enemy137" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 40, 152 )
+
+[node name="Enemy138" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 8, 152 )
+
+[node name="Enemy140" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 88, 152 )
+
+[node name="Enemy131" parent="disappear" instance=ExtResource( 5 )]
+position = Vector2( 24, 136 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[editable path="Gate"]
