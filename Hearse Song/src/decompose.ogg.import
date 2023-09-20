@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/decompose.ogg-aa1977cf793d01366795d9cd5036ca40.oggstr"
+
+[deps]
+
+source_file="res://src/decompose.ogg"
+dest_files=[ "res://.import/decompose.ogg-aa1977cf793d01366795d9cd5036ca40.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
