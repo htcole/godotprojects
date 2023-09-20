@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Place_Tidal_Farm.wav-5163e8b0e1786d6e53501a47d984ea36.sample"
+
+[deps]
+
+source_file="res://audio/place_tile/Place_Tidal_Farm.wav"
+dest_files=[ "res://.import/Place_Tidal_Farm.wav-5163e8b0e1786d6e53501a47d984ea36.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

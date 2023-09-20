@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Place_Wind_Farm.wav-d013cd3c9dff6536b2c55df428959258.sample"
+
+[deps]
+
+source_file="res://audio/place_tile/Place_Wind_Farm.wav"
+dest_files=[ "res://.import/Place_Wind_Farm.wav-d013cd3c9dff6536b2c55df428959258.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Place_Desert.wav-542c1592cd612ee55abf40e13dc16ca6.sample"
+
+[deps]
+
+source_file="res://audio/place_tile/Place_Desert.wav"
+dest_files=[ "res://.import/Place_Desert.wav-542c1592cd612ee55abf40e13dc16ca6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

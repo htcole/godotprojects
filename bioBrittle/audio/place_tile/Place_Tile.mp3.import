@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Place_Tile.mp3-1491c94e0e6cf6061b327e29e680f6db.mp3str"
+
+[deps]
+
+source_file="res://audio/place_tile/Place_Tile.mp3"
+dest_files=[ "res://.import/Place_Tile.mp3-1491c94e0e6cf6061b327e29e680f6db.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

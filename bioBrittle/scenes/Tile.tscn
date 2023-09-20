@@ -1,0 +1,271 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/Tile.gd" type="Script" id=1]
+[ext_resource path="res://art/tiles/farm-3.png" type="Texture" id=2]
+[ext_resource path="res://art/tiles/smallcracks.png" type="Texture" id=3]
+[ext_resource path="res://art/tiles/mediumcracks.png" type="Texture" id=4]
+[ext_resource path="res://art/tiles/darkborder.png" type="Texture" id=5]
+[ext_resource path="res://art/tiles/largecracks.png" type="Texture" id=6]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=7]
+[ext_resource path="res://themes/theme_panel_heading.tres" type="Theme" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.392157 )
+
+[node name="Tile" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.611765, 0.631373, 0.552941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+margin_right = 160.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 80.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 73.0
+margin_bottom = 73.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/CenterContainer"]
+margin_left = 8.0
+margin_top = 5.0
+margin_right = 57.0
+margin_bottom = 60.0
+custom_constants/separation = 10
+
+[node name="LabelType" type="Label" parent="MarginContainer/PanelContainer/CenterContainer/VBoxContainer"]
+margin_right = 49.0
+margin_bottom = 31.0
+text = "Nuclear
+Plant"
+align = 1
+valign = 1
+
+[node name="LabelHealth" type="Label" parent="MarginContainer/PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 41.0
+margin_right = 49.0
+margin_bottom = 55.0
+text = "3/3"
+align = 1
+valign = 1
+
+[node name="PanelBlur" type="Panel" parent="MarginContainer"]
+visible = false
+margin_right = 80.0
+margin_bottom = 80.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Damage1" type="TextureRect" parent="."]
+visible = false
+margin_right = 160.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damage2" type="TextureRect" parent="."]
+visible = false
+margin_right = 160.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damage3" type="TextureRect" parent="."]
+visible = false
+margin_right = 160.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="TextureRect" parent="."]
+margin_right = 160.0
+margin_bottom = 160.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DispInvalid" type="Polygon2D" parent="."]
+visible = false
+color = Color( 1, 0, 0, 0.588235 )
+polygon = PoolVector2Array( 72, 16, 48, 40, 72, 64, 64, 72, 40, 48, 16, 72, 8, 64, 32, 40, 8, 16, 16, 8, 40, 32, 64, 8 )
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 80 )
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoCard" type="Node2D" parent="."]
+visible = false
+position = Vector2( 80, 80 )
+z_index = 1
+
+[node name="InfoPanel" type="PanelContainer" parent="InfoCard"]
+margin_right = 175.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 175, 0 )
+mouse_filter = 1
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoCard/InfoPanel"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 172.0
+margin_bottom = 223.0
+
+[node name="LabelInfoTitle" type="Label" parent="InfoCard/InfoPanel/VBoxContainer"]
+margin_right = 169.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+mouse_filter = 1
+theme = ExtResource( 8 )
+text = "Nuclear Plant"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoCard/InfoPanel/VBoxContainer"]
+margin_top = 34.0
+margin_right = 169.0
+margin_bottom = 220.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 164.0
+margin_bottom = 181.0
+
+[node name="LabelInfoReqs" type="Label" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 159.0
+margin_bottom = 60.0
+mouse_filter = 1
+text = "Neighborhood must have a water tile (lake, river, ocean)."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HSeparator2" type="HSeparator" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 159.0
+margin_bottom = 68.0
+mouse_filter = 1
+
+[node name="LabelInfoInteractions" type="Label" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 159.0
+margin_bottom = 90.0
+mouse_filter = 1
+text = "Impact of neighboring tiles"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 159.0
+margin_bottom = 176.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer"]
+margin_right = 158.0
+margin_bottom = 82.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 79.0
+margin_bottom = 82.0
+
+[node name="LabelPostive" type="Label" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 79.0
+margin_bottom = 18.0
+text = "Positive"
+align = 1
+
+[node name="LabelInteractionsPositive" type="Label" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 79.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 75, 0 )
+text = "Coal Mine (-2)
+Farm (+1)
+Refinery (-1)"
+align = 1
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+visible = false
+margin_left = 79.0
+margin_right = 83.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 83.0
+margin_right = 158.0
+margin_bottom = 82.0
+
+[node name="LabelNegative" type="Label" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 75.0
+margin_bottom = 18.0
+text = "Negative"
+align = 1
+
+[node name="LabelInteractionsNegative" type="Label" parent="InfoCard/InfoPanel/VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 22.0
+margin_right = 75.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 75, 0 )
+align = 1
+valign = 1
+
+[connection signal="mouse_entered" from="MarginContainer" to="." method="_on_MarginContainer_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer" to="." method="_on_MarginContainer_mouse_exited"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

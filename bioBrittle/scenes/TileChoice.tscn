@@ -1,0 +1,172 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Tile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/TileChoice.gd" type="Script" id=2]
+[ext_resource path="res://themes/style_outline.tres" type="StyleBox" id=3]
+
+[node name="TileChoice" type="PanelContainer"]
+margin_top = 133.0
+margin_right = 140.0
+margin_bottom = 467.0
+rect_min_size = Vector2( 140, 0 )
+mouse_filter = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 133.0
+margin_bottom = 327.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="TileChoiceList" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 121.0
+margin_bottom = 315.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TileChoiceList"]
+margin_right = 116.0
+margin_bottom = 96.0
+mouse_filter = 1
+
+[node name="Outline1" type="PanelContainer" parent="MarginContainer/TileChoiceList/CenterContainer"]
+margin_left = 10.0
+margin_right = 106.0
+margin_bottom = 96.0
+mouse_filter = 1
+custom_styles/panel = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TileChoiceList/CenterContainer/Outline1"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 93.0
+margin_bottom = 93.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TileChoiceList/CenterContainer/Outline1/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 85.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 80, 80 )
+mouse_filter = 1
+
+[node name="Tile1" parent="MarginContainer/TileChoiceList/CenterContainer/Outline1/MarginContainer/PanelContainer" instance=ExtResource( 1 )]
+
+[node name="Button" type="Button" parent="MarginContainer/TileChoiceList/CenterContainer/Outline1/MarginContainer/PanelContainer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 73.0
+margin_bottom = 73.0
+mouse_filter = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/TileChoiceList"]
+margin_top = 106.0
+margin_right = 116.0
+margin_bottom = 202.0
+mouse_filter = 1
+
+[node name="Outline2" type="PanelContainer" parent="MarginContainer/TileChoiceList/CenterContainer2"]
+margin_left = 10.0
+margin_right = 106.0
+margin_bottom = 96.0
+mouse_filter = 1
+custom_styles/panel = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TileChoiceList/CenterContainer2/Outline2"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 93.0
+margin_bottom = 93.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TileChoiceList/CenterContainer2/Outline2/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 85.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 80, 80 )
+mouse_filter = 1
+
+[node name="Tile2" parent="MarginContainer/TileChoiceList/CenterContainer2/Outline2/MarginContainer/PanelContainer" instance=ExtResource( 1 )]
+
+[node name="Button" type="Button" parent="MarginContainer/TileChoiceList/CenterContainer2/Outline2/MarginContainer/PanelContainer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 73.0
+margin_bottom = 73.0
+mouse_filter = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/TileChoiceList"]
+margin_top = 212.0
+margin_right = 116.0
+margin_bottom = 308.0
+mouse_filter = 1
+
+[node name="Outline3" type="PanelContainer" parent="MarginContainer/TileChoiceList/CenterContainer3"]
+margin_left = 10.0
+margin_right = 106.0
+margin_bottom = 96.0
+mouse_filter = 1
+custom_styles/panel = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TileChoiceList/CenterContainer3/Outline3"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 93.0
+margin_bottom = 93.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TileChoiceList/CenterContainer3/Outline3/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 85.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 80, 80 )
+mouse_filter = 1
+
+[node name="Tile3" parent="MarginContainer/TileChoiceList/CenterContainer3/Outline3/MarginContainer/PanelContainer" instance=ExtResource( 1 )]
+
+[node name="Button" type="Button" parent="MarginContainer/TileChoiceList/CenterContainer3/Outline3/MarginContainer/PanelContainer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 73.0
+margin_bottom = 73.0
+mouse_filter = 1
+
+[connection signal="tile_clicked" from="MarginContainer/TileChoiceList/CenterContainer/Outline1/MarginContainer/PanelContainer/Tile1" to="." method="process_tile_selected" binds= [ 0 ]]
+[connection signal="pressed" from="MarginContainer/TileChoiceList/CenterContainer/Outline1/MarginContainer/PanelContainer/Button" to="." method="process_tile_selected" binds= [ 0 ]]
+[connection signal="tile_clicked" from="MarginContainer/TileChoiceList/CenterContainer2/Outline2/MarginContainer/PanelContainer/Tile2" to="." method="process_tile_selected" binds= [ 1 ]]
+[connection signal="pressed" from="MarginContainer/TileChoiceList/CenterContainer2/Outline2/MarginContainer/PanelContainer/Button" to="." method="process_tile_selected" binds= [ 1 ]]
+[connection signal="tile_clicked" from="MarginContainer/TileChoiceList/CenterContainer3/Outline3/MarginContainer/PanelContainer/Tile3" to="." method="process_tile_selected" binds= [ 2 ]]
+[connection signal="pressed" from="MarginContainer/TileChoiceList/CenterContainer3/Outline3/MarginContainer/PanelContainer/Button" to="." method="process_tile_selected" binds= [ 2 ]]

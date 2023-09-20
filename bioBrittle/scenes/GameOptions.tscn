@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/GameOptions.gd" type="Script" id=1]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=2]
+[ext_resource path="res://themes/theme_panel_heading.tres" type="Theme" id=3]
+
+[node name="GameOptions" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelBlur" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 384.0
+margin_top = 125.0
+margin_right = 640.0
+margin_bottom = 475.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 253.0
+margin_bottom = 347.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 250.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 250, 40 )
+theme = ExtResource( 3 )
+text = "Options"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 250.0
+margin_bottom = 344.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 230.0
+margin_bottom = 280.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer"]
+margin_left = 5.0
+margin_right = 205.0
+margin_bottom = 260.0
+custom_constants/separation = 20
+
+[node name="ButtonBack" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2"]
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 80.0
+custom_constants/margin_bottom = 20
+
+[node name="ButtonPlayAgain" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2"]
+margin_top = 100.0
+margin_right = 200.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Restart Level"
+
+[node name="ButtonMainMenu" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2"]
+margin_top = 160.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Main Menu"
+
+[node name="ButtonAbandonCampaign" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2"]
+margin_top = 220.0
+margin_right = 200.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Abandon Campaign"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2/ButtonBack" to="." method="_on_ButtonBack_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2/ButtonPlayAgain" to="." method="_on_ButtonPlayAgain_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer2/ButtonAbandonCampaign" to="." method="_on_ButtonAbandonCampaign_pressed"]

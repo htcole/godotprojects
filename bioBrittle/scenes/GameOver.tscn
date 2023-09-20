@@ -1,0 +1,144 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=2]
+[ext_resource path="res://themes/theme_panel_heading.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/World.tscn" type="PackedScene" id=4]
+
+[node name="GameOver" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelBlur" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 351.0
+margin_top = 25.0
+margin_right = 672.0
+margin_bottom = 574.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 318.0
+margin_bottom = 546.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 315.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 250, 40 )
+theme = ExtResource( 3 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 315.0
+margin_bottom = 543.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 295.0
+margin_bottom = 479.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer"]
+margin_right = 275.0
+margin_bottom = 459.0
+size_flags_horizontal = 0
+custom_constants/separation = 20
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 275.0
+margin_bottom = 160.0
+
+[node name="Panel" type="Panel" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 57.0
+margin_right = 217.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
+
+[node name="World" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/Panel" instance=ExtResource( 4 )]
+
+[node name="LabelMessage1" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 107.0
+margin_top = 65.0
+margin_right = 167.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 60, 30 )
+theme = ExtResource( 3 )
+text = "Victory!"
+align = 1
+valign = 1
+
+[node name="LabelMessage2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 180.0
+margin_right = 275.0
+margin_bottom = 219.0
+text = "Your choices prevented the world from collapsing.
+Can you do better if the challenge increases?\""
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 239.0
+margin_right = 275.0
+margin_bottom = 459.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 37.0
+margin_right = 237.0
+margin_bottom = 220.0
+custom_constants/separation = 20
+
+[node name="ButtonShowMap" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Show Final Map"
+
+[node name="ButtonPlayAgain" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Play Again"
+
+[node name="ButtonContinue" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Continue to Next Level"
+
+[node name="ButtonMainMenu" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 180.0
+margin_right = 200.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 200, 40 )
+size_flags_horizontal = 0
+text = "Main Menu"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ButtonShowMap" to="." method="_on_ButtonShowMap_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ButtonPlayAgain" to="." method="_on_ButtonPlayAgain_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ButtonContinue" to="." method="_on_ButtonContinue_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/CenterContainer/VBoxContainer/CenterContainer/VBoxContainer/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]

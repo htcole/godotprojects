@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://themes/background_frames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://themes/background_frames_2.tres" type="SpriteFrames" id=2]
+
+[node name="Background" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+frames = ExtResource( 1 )
+frame = 14
+playing = true
+centered = false
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+frames = ExtResource( 2 )
+playing = true
+centered = false
