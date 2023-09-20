@@ -1,3 +1,11 @@
+# Hearse Game
+
+This variation of minimum game uses what is provided in a different method. A maze is created that demonstrates scene changes and utilizes traps/enemy types.
+Music was created by
+Programming by Heather Cole (outside of the provided Minimum Game)
+Art and Game Design by Heather Cole
+Sound by discord user CHICHO#5429
+
 # Minimum Game
 
 This is a template Top-down 2D pixel art game for the
