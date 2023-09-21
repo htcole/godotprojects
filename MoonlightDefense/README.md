@@ -1,5 +1,7 @@
 # Moonlight Defense
 
+This project will only work with Godot 3.5 and higher
+
 This is a tower defense game created for the Godot Wild Jam #48. 
 
 Questions can be directed on the following:
